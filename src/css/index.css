@@ -1,0 +1,13 @@
+.navbar-brand {
+    margin-right: 16px;
+}
+
+.navbar-nav .nav-link {
+    font-weight: bold;
+    margin-right: 16px;
+}
+
+.navbar-nav .nav-link.active {
+    color: orange !important;
+    border-bottom: 2px solid orange;
+}
