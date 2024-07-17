@@ -1,13 +1,74 @@
-.navbar-brand {
-    margin-right: 16px;
+.myNavbarInner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.navbar-nav .nav-link {
+.navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.nav-link {
+    position: relative;
     font-weight: bold;
     margin-right: 16px;
+    padding: 0.5rem 1rem;
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.navbar-nav .nav-link.active {
+.nav-link.active {
     color: orange !important;
-    border-bottom: 2px solid orange;
+}
+
+.nav-link::before,
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: orange;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav-link.active::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 5px;
+    background: rgba(255, 165, 0, 0.5); /* Light orange shadow */
+    bottom: -5px; /* Adjust this value to control the shadow position */
+    left: -50%;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.nav-link.active::after {
+    opacity: 1;
+}
+
+
+/*  -----------------------  */
+
+.myNavbar{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.myNavbarInner{
+    justify-content: space-between;
+    width: 100%;
 }

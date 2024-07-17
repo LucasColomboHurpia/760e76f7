@@ -2,35 +2,38 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import ActivityFeed from './components/ActivityFeed.jsx';
 import ActivityDetail from './components/ActivityDetail.jsx';
-import ArchivedCalls from './components/ArchivedCalls.jsx';
+import AllCalls from './components/AllCalls.jsx';
 import Logo from './components/Logo.jsx';
 import { CallProvider } from './context/CallContext';
+import PageTransition from './components/PageTransition.jsx';
 
 const App = () => {
     return (
         <CallProvider>
             <Router>
                 <div className="container">
-                    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                        <div className="d-flex align-items-center">
+                    <nav className="navbar navbar-expand-lg navbar-light bg-light myNavbar">
+                        <div className="d-flex align-items-center myNavbarInner">
                             <a className="navbar-brand" href="/">
                                 <Logo />
                             </a>
-                            <div className="navbar-nav ml-auto">
+                            <div className="navbar-nav ml-auto flex-column">
                                 <NavLink className="nav-link" to="/" exact activeClassName="active">
                                     Inbox
                                 </NavLink>
-                                <NavLink className="nav-link" to="/archived" activeClassName="active">
+                                <NavLink className="nav-link" to="/all-calls" activeClassName="active">
                                     All calls
                                 </NavLink>
                             </div>
                         </div>
                     </nav>
-                    <Routes>
-                        <Route path="/" element={<ActivityFeed />} />
-                        <Route path="/archived" element={<ArchivedCalls />} />
-                        <Route path="/detail/:id" element={<ActivityDetail />} />
-                    </Routes>
+                    <PageTransition>
+                        <Routes>
+                            <Route path="/" element={<ActivityFeed />} />
+                            <Route path="/all-calls" element={<AllCalls />} />
+                            <Route path="/detail/:id" element={<ActivityDetail />} />
+                        </Routes>
+                    </PageTransition>
                 </div>
             </Router>
         </CallProvider>
