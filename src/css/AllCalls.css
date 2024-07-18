@@ -1,0 +1,51 @@
+.all-calls h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #999;
+    text-align: center;
+    position: relative;
+}
+
+.all-calls h2:before,
+.all-calls h2:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.all-calls h2:before {
+    left: 0;
+}
+
+.all-calls h2:after {
+    right: 0;
+}
+
+.call-list {
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 0;
+    list-style: none;
+}
+
+.call-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.call-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.call-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.call-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

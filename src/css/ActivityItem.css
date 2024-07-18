@@ -2,12 +2,29 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #fff;
+    background: #f8f9fa;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 10px 15px;
     margin-bottom: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.activity-item.archiving {
+    animation: archive-animation 0.5s forwards;
+}
+
+@keyframes archive-animation {
+    0% {
+        transform: translateX(0);
+    }
+    30% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .activity-item .left-section {
@@ -17,6 +34,7 @@
 
 .activity-item .icon {
     margin-right: 10px;
+    color: gray; /* Set the icon color to gray */
 }
 
 .activity-item .icon.answered {
@@ -65,7 +83,15 @@
 .activity-item button {
     background: none;
     border: none;
-    color: #007bff;
+    color: gray; /* Set the button color to gray */
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: none;
+}
+
+.activity-item .icon.archive {
+    color: gray; /* Ensure archive icon is gray */
+}
+
+.activity-item .icon.unarchive {
+    color: #28a745;
 }

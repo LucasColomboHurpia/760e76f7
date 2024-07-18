@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './../css/ActivityItem.css';
-import { FaPhoneAlt, FaPhoneSlash } from 'react-icons/fa';
+import { FaPhoneAlt, FaPhoneSlash, FaArchive, FaInbox } from 'react-icons/fa';
 import { MdCallEnd } from 'react-icons/md';
 
-const ActivityItem = ({ call, onArchiveToggle }) => {
+const ActivityItem = ({ call, onArchiveToggle, showArchiveButton = true, delay = 0, triggerArchive = false }) => {
+    const [archiving, setArchiving] = useState(false);
+
+    useEffect(() => {
+        let timer;
+        if (triggerArchive) {
+            setArchiving(true);
+            timer = setTimeout(() => {
+                onArchiveToggle(call.id);
+                setArchiving(false);
+            }, 500 + delay); // Duration of the animation plus delay
+        }
+        return () => clearTimeout(timer);
+    }, [triggerArchive, call.id, onArchiveToggle, delay]);
+
     const handleArchiveToggle = () => {
-        onArchiveToggle(call.id);
+        setArchiving(true);
+        setTimeout(() => {
+            onArchiveToggle(call.id);
+            setArchiving(false);
+        }, 500); // Duration of the animation
     };
 
     const getIcon = () => {
@@ -37,7 +55,7 @@ const ActivityItem = ({ call, onArchiveToggle }) => {
     };
 
     return (
-        <div className="activity-item">
+        <div className={`activity-item ${archiving ? 'archiving' : ''}`} style={{ transitionDelay: `${delay}ms` }}>
             <div className="left-section">
                 {getIcon()}
                 <div className="details">
@@ -48,9 +66,11 @@ const ActivityItem = ({ call, onArchiveToggle }) => {
             </div>
             <div className="right-section">
                 <span className="time">{new Date(call.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
-                <button onClick={handleArchiveToggle}>
-                    {call.is_archived ? 'Unarchive' : 'Archive'}
-                </button>
+                {showArchiveButton && (
+                    <button onClick={handleArchiveToggle}>
+                        {call.is_archived ? <FaInbox className="icon unarchive" /> : <FaArchive className="icon archive" />}
+                    </button>
+                )}
             </div>
         </div>
     );

@@ -1,0 +1,75 @@
+.activity-feed h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #999;
+    text-align: center;
+    position: relative;
+}
+
+.activity-feed h2:before,
+.activity-feed h2:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.activity-feed h2:before {
+    left: 0;
+}
+
+.activity-feed h2:after {
+    right: 0;
+}
+
+.call-list {
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0;
+    list-style: none;
+}
+
+.call-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.call-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.call-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.call-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.archive-all-button {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Full width */
+    justify-content: center; /* Center the content */
+}
+
+.archive-all-button:hover {
+    background-color: #e2e6ea;
+}
+
+.archive-all-icon {
+    margin-right: 10px;
+    color: #333;
+}
