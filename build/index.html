@@ -7,20 +7,20 @@
   </head>
   <body>
     <div id="root"></div>
-  <script type="text/javascript" src="main.js"></script></body>
+    <script>
+      ///this fixes a bug with github pages build version, sorry for the spaghetti
+      document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+          let links = document.querySelectorAll('a');
+          links.forEach(function(link) {
+              if (link.textContent.trim() === 'Inbox') {
+                  link.click();
+              }
+          });
+      }, 1500);
+  });</script>
 
-  <script>
-    ///this fixes a bug with github pages build version, sorry for the spaghetti
-    document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-        let links = document.querySelectorAll('a');
-        links.forEach(function(link) {
-            if (link.textContent.trim() === 'Inbox') {
-                link.click();
-            }
-        });
-    }, 1500);
-});
+  <script type="text/javascript" src="main.js"></script></body>
 
   </script>
 </html>
