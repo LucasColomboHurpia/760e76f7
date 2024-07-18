@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
-import ActivityFeed from './components/ActivityFeed.jsx';
-import ActivityDetail from './components/ActivityDetail.jsx';
-import AllCalls from './components/AllCalls.jsx';
-import Logo from './components/Logo.jsx';
+import ActivityFeed from './components/ActivityFeed.js';
+import ActivityDetail from './components/ActivityDetail.js';
+import AllCalls from './components/AllCalls.js';
+import Logo from './components/Logo.js';
 import { CallProvider } from './context/CallContext';
 import { DarkModeProvider, useDarkMode } from './context/DarkModeContext';
-import PageTransition from './components/PageTransition.jsx';
+import PageTransition from './components/PageTransition.js';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
 const DarkModeToggle = () => {

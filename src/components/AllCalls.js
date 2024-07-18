@@ -1,34 +1,37 @@
 import React, { useContext, useState } from 'react';
-import { CallContext } from '../context/CallContext';
-import ActivityItem from './ActivityItem.jsx';
-import { groupByDate } from '../utils/groupByDate';
-import './../css/ActivityFeed.css';
-import { FaArchive } from 'react-icons/fa';
+import { CallContext } from '../context/CallContext.js';
+import ActivityItem from './ActivityItem.js';
+import { groupByDate } from '../utils/groupByDate.js';
+import './../css/AllCalls.css';
+import { FaArchive, FaInbox } from 'react-icons/fa';
 
-const ActivityFeed = () => {
-    const { calls, archiveCall, archiveAll, loading } = useContext(CallContext);
+const AllCalls = () => {
+    const { calls, archiveCall, unarchiveCall, archiveAll, unarchiveAll, loading } = useContext(CallContext);
     const [triggerArchiveAll, setTriggerArchiveAll] = useState(false);
 
     if (loading) {
         return <div>Loading...</div>;
     }
 
-    const unarchivedCalls = calls.filter(call => !call.is_archived);
-    const groupedCalls = groupByDate(unarchivedCalls);
+    const groupedCalls = groupByDate(calls);
 
     const handleArchiveAll = () => {
-        setTriggerArchiveAll(true);
-        setTimeout(() => {
-            archiveAll();
-            setTriggerArchiveAll(false);
-        }, unarchivedCalls.length * 100 + 500); 
+        archiveAll();
+    };
+
+    const handleUnarchiveAll = () => {
+        unarchiveAll();
     };
 
     return (
-        <div className="activity-feed">
+        <div className="all-calls">
             <button className="archive-all-button" onClick={handleArchiveAll}>
                 <FaArchive className="archive-all-icon" />
                 Archive all calls
+            </button>
+            <button className="archive-all-button" onClick={handleUnarchiveAll}>
+                <FaInbox className="archive-all-icon" />
+                Unarchive all calls
             </button>
             <div className="call-list-container">
                 {Object.keys(groupedCalls).map(date => (
@@ -39,10 +42,11 @@ const ActivityFeed = () => {
                                 <ActivityItem
                                     key={call.id}
                                     call={call}
-                                    onArchiveToggle={archiveCall}
+                                    onArchiveToggle={call.is_archived ? unarchiveCall : archiveCall}
                                     delay={index * 100} 
-                                    triggerArchive={triggerArchiveAll} 
-                                    animationType="slide" 
+                                    triggerArchive={false} 
+                                    showArchiveButton={true} 
+                                    animationType="hop" 
                                 />
                             ))}
                         </ul>
@@ -53,4 +57,4 @@ const ActivityFeed = () => {
     );
 };
 
-export default ActivityFeed;
+export default AllCalls;
