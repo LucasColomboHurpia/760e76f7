@@ -41,20 +41,43 @@
     list-style: none;
 }
 
-.call-list::-webkit-scrollbar {
+.call-list-container::-webkit-scrollbar {
     width: 8px;
 }
 
-.call-list::-webkit-scrollbar-track {
+.call-list-container::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 10px;
 }
 
-.call-list::-webkit-scrollbar-thumb {
+.call-list-container::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 10px;
 }
 
-.call-list::-webkit-scrollbar-thumb:hover {
+.call-list-container::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+.archive-all-button {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Full width */
+    justify-content: center; /* Center the content */
+}
+
+.archive-all-button:hover {
+    background-color: #e2e6ea;
+}
+
+.archive-all-icon {
+    margin-right: 10px;
+    color: #333;
 }

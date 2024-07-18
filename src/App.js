@@ -17,7 +17,7 @@ const App = () => {
                             <a className="navbar-brand" href="/">
                                 <Logo />
                             </a>
-                            <div className="navbar-nav ml-auto flex-column justify-content-center align-items-stretch">
+                            <div className="navbar-nav ml-auto justify-content-center align-items-stretch">
                                 <NavLink className="nav-link text-center" to="/" exact activeClassName="active">
                                     Inbox
                                 </NavLink>

@@ -11,6 +11,7 @@
     text-align: center;
     position: relative;
 }
+
 .activity-feed h2:before,
 .activity-feed h2:after {
     content: "";

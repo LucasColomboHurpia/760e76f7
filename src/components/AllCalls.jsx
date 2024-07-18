@@ -3,10 +3,10 @@ import { CallContext } from '../context/CallContext';
 import ActivityItem from './ActivityItem.jsx';
 import { groupByDate } from '../utils/groupByDate';
 import './../css/AllCalls.css';
+import { FaArchive, FaInbox } from 'react-icons/fa';
 
 const AllCalls = () => {
-    const { calls, archiveCall, unarchiveCall, loading } = useContext(CallContext);
-    const [triggerArchiveAll, setTriggerArchiveAll] = useState(false);
+    const { calls, archiveCall, unarchiveCall, archiveAll, unarchiveAll, loading } = useContext(CallContext);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -14,8 +14,24 @@ const AllCalls = () => {
 
     const groupedCalls = groupByDate(calls);
 
+    const handleArchiveAll = () => {
+        archiveAll();
+    };
+
+    const handleUnarchiveAll = () => {
+        unarchiveAll();
+    };
+
     return (
         <div className="all-calls">
+            <button className="archive-all-button" onClick={handleArchiveAll}>
+                <FaArchive className="archive-all-icon" />
+                Archive all calls
+            </button>
+            <button className="archive-all-button" onClick={handleUnarchiveAll}>
+                <FaInbox className="archive-all-icon" />
+                Unarchive all calls
+            </button>
             <div className="call-list-container">
                 {Object.keys(groupedCalls).map(date => (
                     <div key={date}>
@@ -27,8 +43,8 @@ const AllCalls = () => {
                                     call={call}
                                     onArchiveToggle={call.is_archived ? unarchiveCall : archiveCall}
                                     delay={index * 100} // Delay each item by 100ms
-                                    triggerArchive={triggerArchiveAll} // Trigger archive animation
-                                    showArchiveButton={false} // Hide archive/unarchive icons
+                                    triggerArchive={false} // No trigger for archive animation
+                                    showArchiveButton={true} // Show archive/unarchive icons
                                 />
                             ))}
                         </ul>

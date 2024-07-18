@@ -1,97 +1,94 @@
 .activity-item {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    background: #f8f9fa;
+    align-items: center;
+    padding: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s ease-in-out;
+    margin: 10px 0;
+    background: #fff;
+    transition: transform 0.5s, opacity 0.5s;
 }
 
 .activity-item.archiving {
-    animation: archive-animation 0.5s forwards;
+    animation: hop 0.5s;
 }
 
-@keyframes archive-animation {
+@keyframes hop {
     0% {
-        transform: translateX(0);
+        transform: translateY(0);
     }
-    30% {
-        transform: translateX(-10px);
+    50% {
+        transform: translateY(-10px);
     }
     100% {
-        transform: translateX(100%);
+        transform: translateY(0);
     }
 }
 
-.activity-item .left-section {
+.left-section {
     display: flex;
     align-items: center;
 }
 
-.activity-item .icon {
+.icon {
     margin-right: 10px;
-    color: gray; /* Set the icon color to gray */
+    font-size: 1.2em;
 }
 
-.activity-item .icon.answered {
-    color: green;
+.answered {
+    color: rgb(55, 144, 55);
 }
 
-.activity-item .icon.missed {
-    color: red;
+.missed {
+    color: rgb(180, 69, 69);
 }
 
-.activity-item .icon.voicemail {
+.voicemail {
     color: orange;
 }
 
-.activity-item .details {
+.details {
     display: flex;
     flex-direction: column;
 }
 
-.activity-item .phone-number {
+.phone-number {
     font-weight: bold;
-    color: #333;
 }
 
-.activity-item .description {
-    color: #888;
-    font-size: 0.9em;
+.description {
+    color: #666;
 }
 
-.activity-item .duration {
-    color: #888;
-    font-size: 0.9em;
+.duration {
+    color: #999;
 }
 
-.activity-item .right-section {
+.right-section {
     display: flex;
     align-items: center;
 }
 
-.activity-item .time {
-    color: #888;
-    font-size: 0.9em;
+.right-section .time {
     margin-right: 10px;
 }
 
-.activity-item button {
+.right-section button {
     background: none;
     border: none;
-    color: gray; /* Set the button color to gray */
     cursor: pointer;
-    text-decoration: none;
+    color: #888;
 }
 
-.activity-item .icon.archive {
-    color: gray; /* Ensure archive icon is gray */
+.right-section button:hover {
+    color: #555;
 }
 
-.activity-item .icon.unarchive {
-    color: #28a745;
+.unarchive {
+    color: #555;
+}
+
+.archive {
+    color: #555;
 }
