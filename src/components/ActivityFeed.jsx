@@ -30,22 +30,24 @@ const ActivityFeed = () => {
                 <FaArchive className="archive-all-icon" />
                 Archive all calls
             </button>
-            {Object.keys(groupedCalls).map(date => (
-                <div key={date}>
-                    <h2>{date}</h2>
-                    <ul className="call-list">
-                        {groupedCalls[date].map((call, index) => (
-                            <ActivityItem
-                                key={call.id}
-                                call={call}
-                                onArchiveToggle={archiveCall}
-                                delay={index * 100} // Delay each item by 100ms
-                                triggerArchive={triggerArchiveAll} // Trigger archive animation
-                            />
-                        ))}
-                    </ul>
-                </div>
-            ))}
+            <div className="call-list-container">
+                {Object.keys(groupedCalls).map(date => (
+                    <div key={date}>
+                        <h2>{date}</h2>
+                        <ul className="call-list">
+                            {groupedCalls[date].map((call, index) => (
+                                <ActivityItem
+                                    key={call.id}
+                                    call={call}
+                                    onArchiveToggle={archiveCall}
+                                    delay={index * 100} // Delay each item by 100ms
+                                    triggerArchive={triggerArchiveAll} // Trigger archive animation
+                                />
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

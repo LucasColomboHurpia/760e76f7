@@ -16,23 +16,25 @@ const AllCalls = () => {
 
     return (
         <div className="all-calls">
-            {Object.keys(groupedCalls).map(date => (
-                <div key={date}>
-                    <h2>{date}</h2>
-                    <ul className="call-list">
-                        {groupedCalls[date].map((call, index) => (
-                            <ActivityItem
-                                key={call.id}
-                                call={call}
-                                onArchiveToggle={call.is_archived ? unarchiveCall : archiveCall}
-                                delay={index * 100} // Delay each item by 100ms
-                                triggerArchive={triggerArchiveAll} // Trigger archive animation
-                                showArchiveButton={false} // Hide archive/unarchive icons
-                            />
-                        ))}
-                    </ul>
-                </div>
-            ))}
+            <div className="call-list-container">
+                {Object.keys(groupedCalls).map(date => (
+                    <div key={date}>
+                        <h2>{date}</h2>
+                        <ul className="call-list">
+                            {groupedCalls[date].map((call, index) => (
+                                <ActivityItem
+                                    key={call.id}
+                                    call={call}
+                                    onArchiveToggle={call.is_archived ? unarchiveCall : archiveCall}
+                                    delay={index * 100} // Delay each item by 100ms
+                                    triggerArchive={triggerArchiveAll} // Trigger archive animation
+                                    showArchiveButton={false} // Hide archive/unarchive icons
+                                />
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
