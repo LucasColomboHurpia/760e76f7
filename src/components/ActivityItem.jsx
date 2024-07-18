@@ -13,7 +13,7 @@ const ActivityItem = ({ call, onArchiveToggle, showArchiveButton = true, delay =
             timer = setTimeout(() => {
                 onArchiveToggle(call.id);
                 setArchiving(false);
-            }, 500 + delay); // Duration of the animation plus delay
+            }, 500 + delay); 
         }
         return () => clearTimeout(timer);
     }, [triggerArchive, call.id, onArchiveToggle, delay, animationType]);
@@ -23,7 +23,7 @@ const ActivityItem = ({ call, onArchiveToggle, showArchiveButton = true, delay =
         setTimeout(() => {
             onArchiveToggle(call.id);
             setArchiving(false);
-        }, 500); // Duration of the animation
+        }, 500); 
     };
 
     const getIcon = () => {
@@ -46,11 +46,11 @@ const ActivityItem = ({ call, onArchiveToggle, showArchiveButton = true, delay =
     const getDescription = () => {
         switch (call.call_type) {
             case 'answered':
-                return `called ${call.to}`;
+                return `Called ${call.to}`;
             case 'missed':
             case 'voicemail':
             default:
-                return `tried to call on ${call.to}`;
+                return `Tried to call on ${call.to}`;
         }
     };
 

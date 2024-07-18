@@ -81,6 +81,8 @@
 
 .duration {
     color: #999;
+    font-weight: 600;
+    font-size: 12px;
 }
 
 .right-section {
@@ -93,6 +95,7 @@
     font-weight: 600;
     font-size: 12px;
     color: grey;
+
 }
 
 .right-section button {

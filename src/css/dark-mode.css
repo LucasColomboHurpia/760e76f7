@@ -1,0 +1,77 @@
+
+
+body.dark-mode .container{
+    background-color: #1e1e1e !important;
+}
+
+body.dark-mode .navbar-light.bg-light {
+    background-color: #333333 !important;
+}
+
+body.dark-mode .navbar-light .navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+body.dark-mode .navbar-light .navbar-brand {
+    color: #ffffff !important;
+}
+
+body.dark-mode .dark-mode-toggle {
+    color: #ffffff;
+}
+
+body.dark-mode .activity-item {
+    background-color: #1e1e1e;
+    border: 1px solid #444444;
+}
+
+body.dark-mode .activity-item .details .description,
+body.dark-mode .activity-item .details .duration {
+    color: #bbbbbb;
+}
+
+body.dark-mode .all-calls h2,
+body.dark-mode .activity-feed h2 {
+    color: #bbbbbb;
+}
+
+body.dark-mode .navbar-light .navbar-nav .nav-link.active {
+    color: Orange !important; 
+}
+
+body.dark-mode .navbar-light .navbar-nav .nav-link {
+    color: #cccccc !important;
+}
+
+
+body.dark-mode .call-list-container {
+    background-color: #1e1e1e;
+    border: 0px solid #444444;
+}
+
+body.dark-mode .call-list-container::-webkit-scrollbar-track {
+    background: #444444;
+}
+
+body.dark-mode .call-list-container::-webkit-scrollbar-thumb {
+    background: #888888;
+}
+
+body.dark-mode .archive-all-button {
+    background: #444444;
+    color: #ffffff;
+    border: 1px solid #555555;
+}
+
+body.dark-mode .archive-all-button:hover {
+    background: #555555;
+}
+
+body.dark-mode .archive-all-button .archive-all-icon,
+body.dark-mode .archive-all-button .unarchive-all-icon {
+    color: #ffffff;
+}
+
+body.dark-mode .phone-number{
+    color: #d3d3d3;
+}
