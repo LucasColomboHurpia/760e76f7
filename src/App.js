@@ -12,8 +12,8 @@ const App = () => {
         <CallProvider>
             <Router>
                 <div className="container">
-                    <nav className="navbar navbar-expand-lg navbar-light bg-light myNavbar shadow-sm mb-4 ">
-                        <div className="d-flex align-items-center myNavbarInner">
+                    <nav className="navbar navbar-expand-lg navbar-light bg-light myNavbar shadow  mb-4 ">
+                        <div className="d-flex align-items-center myNavbarInner pt-2 pb-2">
                             <a className="navbar-brand" href="/">
                                 <Logo />
                             </a>
