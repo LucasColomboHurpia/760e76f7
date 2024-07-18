@@ -69,8 +69,8 @@
     margin: 10px 0;
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 100%; /* Full width */
-    justify-content: center; /* Center the content */
+    width: 100%;
+    justify-content: center; 
 }
 
 .archive-all-button:hover {

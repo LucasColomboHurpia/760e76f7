@@ -43,10 +43,10 @@ const AllCalls = () => {
                                     key={call.id}
                                     call={call}
                                     onArchiveToggle={call.is_archived ? unarchiveCall : archiveCall}
-                                    delay={index * 100} // Delay each item by 100ms
-                                    triggerArchive={false} // No trigger for archive animation
-                                    showArchiveButton={true} // Show archive/unarchive icons
-                                    animationType="hop" // Use hop animation
+                                    delay={index * 100} 
+                                    triggerArchive={false} 
+                                    showArchiveButton={true} 
+                                    animationType="hop" 
                                 />
                             ))}
                         </ul>

@@ -16,7 +16,3 @@ root.render(
     <App id='#app' />
   </React.StrictMode>
 );
-
-//https://github.com/speer-technologies/aircall
-//https://docs.google.com/forms/d/e/1FAIpQLSeYU8P-RlgCcl8eI8vttI7AI-8OfywP-YFzkWzML_apXj4bSA/viewform
-//https://miro.com/app/board/uXjVK9UItTc=/

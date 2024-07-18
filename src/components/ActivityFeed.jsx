@@ -21,7 +21,7 @@ const ActivityFeed = () => {
         setTimeout(() => {
             archiveAll();
             setTriggerArchiveAll(false);
-        }, unarchivedCalls.length * 100 + 500); // Ensure all animations complete before archiving all
+        }, unarchivedCalls.length * 100 + 500); 
     };
 
     return (
@@ -40,9 +40,9 @@ const ActivityFeed = () => {
                                     key={call.id}
                                     call={call}
                                     onArchiveToggle={archiveCall}
-                                    delay={index * 100} // Delay each item by 100ms
-                                    triggerArchive={triggerArchiveAll} // Trigger archive animation
-                                    animationType="slide" // Use slide animation
+                                    delay={index * 100} 
+                                    triggerArchive={triggerArchiveAll} 
+                                    animationType="slide" 
                                 />
                             ))}
                         </ul>
