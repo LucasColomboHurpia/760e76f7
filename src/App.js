@@ -12,12 +12,12 @@ const App = () => {
         <CallProvider>
             <Router>
                 <div className="container">
-                    <nav className="navbar navbar-expand-lg navbar-light bg-light myNavbar">
+                    <nav className="navbar navbar-expand-lg navbar-light bg-light myNavbar shadow-sm mb-4 ">
                         <div className="d-flex align-items-center myNavbarInner">
                             <a className="navbar-brand" href="/">
                                 <Logo />
                             </a>
-                            <div className="navbar-nav ml-auto flex-column">
+                            <div className="navbar-nav ml-auto flex-column justify-content-center align-items-stretch">
                                 <NavLink className="nav-link" to="/" exact activeClassName="active">
                                     Inbox
                                 </NavLink>
