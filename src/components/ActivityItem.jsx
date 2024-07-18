@@ -3,12 +3,12 @@ import './../css/ActivityItem.css';
 import { FaPhoneAlt, FaPhoneSlash, FaArchive, FaInbox } from 'react-icons/fa';
 import { MdCallEnd } from 'react-icons/md';
 
-const ActivityItem = ({ call, onArchiveToggle, showArchiveButton = true, delay = 0, triggerArchive = false }) => {
+const ActivityItem = ({ call, onArchiveToggle, showArchiveButton = true, delay = 0, triggerArchive = false, animationType = 'slide' }) => {
     const [archiving, setArchiving] = useState(false);
 
     useEffect(() => {
         let timer;
-        if (triggerArchive) {
+        if (triggerArchive && animationType === 'slide') {
             setArchiving(true);
             timer = setTimeout(() => {
                 onArchiveToggle(call.id);
@@ -16,7 +16,7 @@ const ActivityItem = ({ call, onArchiveToggle, showArchiveButton = true, delay =
             }, 500 + delay); // Duration of the animation plus delay
         }
         return () => clearTimeout(timer);
-    }, [triggerArchive, call.id, onArchiveToggle, delay]);
+    }, [triggerArchive, call.id, onArchiveToggle, delay, animationType]);
 
     const handleArchiveToggle = () => {
         setArchiving(true);
@@ -55,7 +55,7 @@ const ActivityItem = ({ call, onArchiveToggle, showArchiveButton = true, delay =
     };
 
     return (
-        <div className={`activity-item ${archiving ? 'archiving' : ''}`} style={{ transitionDelay: `${delay}ms` }}>
+        <div className={`activity-item ${archiving ? (animationType === 'slide' ? 'archiving' : 'hopping') : ''}`} style={{ transitionDelay: `${delay}ms` }}>
             <div className="left-section">
                 {getIcon()}
                 <div className="details">

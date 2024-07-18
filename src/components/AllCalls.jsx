@@ -7,6 +7,7 @@ import { FaArchive, FaInbox } from 'react-icons/fa';
 
 const AllCalls = () => {
     const { calls, archiveCall, unarchiveCall, archiveAll, unarchiveAll, loading } = useContext(CallContext);
+    const [triggerArchiveAll, setTriggerArchiveAll] = useState(false);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -45,6 +46,7 @@ const AllCalls = () => {
                                     delay={index * 100} // Delay each item by 100ms
                                     triggerArchive={false} // No trigger for archive animation
                                     showArchiveButton={true} // Show archive/unarchive icons
+                                    animationType="hop" // Use hop animation
                                 />
                             ))}
                         </ul>

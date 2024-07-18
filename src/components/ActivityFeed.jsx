@@ -42,6 +42,7 @@ const ActivityFeed = () => {
                                     onArchiveToggle={archiveCall}
                                     delay={index * 100} // Delay each item by 100ms
                                     triggerArchive={triggerArchiveAll} // Trigger archive animation
+                                    animationType="slide" // Use slide animation
                                 />
                             ))}
                         </ul>
