@@ -18,10 +18,10 @@ const App = () => {
                                 <Logo />
                             </a>
                             <div className="navbar-nav ml-auto flex-column justify-content-center align-items-stretch">
-                                <NavLink className="nav-link" to="/" exact activeClassName="active">
+                                <NavLink className="nav-link text-center" to="/" exact activeClassName="active">
                                     Inbox
                                 </NavLink>
-                                <NavLink className="nav-link" to="/all-calls" activeClassName="active">
+                                <NavLink className="nav-link text-center" to="/all-calls" activeClassName="active">
                                     All calls
                                 </NavLink>
                             </div>
