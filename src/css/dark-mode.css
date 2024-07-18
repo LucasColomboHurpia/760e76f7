@@ -21,8 +21,8 @@ body.dark-mode .dark-mode-toggle {
 }
 
 body.dark-mode .activity-item {
-    background-color: #1e1e1e;
-    border: 1px solid #444444;
+    background-color: #1c1c1c;
+    border: 1px solid #2d2d2d;
 }
 
 body.dark-mode .activity-item .details .description,
